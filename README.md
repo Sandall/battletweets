@@ -1,12 +1,12 @@
 # Battle of the Tweets!
 
-What is battletweets?
+### What is battletweets?
 
 Battletweets is an application that records the amount of spelling mistakes between two given tweets over a specified 
 period of time.
 
 
-###How does it work?
+### How does it work?
 
 
 The application has a simple flow: firstly a user must define a battle, once defined the user can initiate the battle by
@@ -16,7 +16,7 @@ during and after said battle.
 Battles can be created via the Django admin area, or via the exposed REST interface. 
 
 
-###How does one run it?
+### How does one run it?
 
 
 The application requires several things to run:
@@ -31,10 +31,10 @@ For convenience, all the required run-times are provided in the Dockerfile at th
 follow the commands below. 
 
 
-####Firstly, an image needs to be built:
+#### Firstly, an image needs to be built:
 
 
-######(make sure you've changed directory to the root of the project!)
+###### (make sure you've changed directory to the root of the project!)
 
 
 ```
@@ -42,7 +42,7 @@ $ docker build -t bt .
 ```
 
 
-####Secondly, the image needs to be run in a container:
+#### Secondly, the image needs to be run in a container:
 
 
 ```
@@ -50,7 +50,7 @@ $ docker run -d -P bt
 ```
 
 
-####Next, found out the port the app is accessible on (in this example it's 32768):
+#### Next, found out the port the app is accessible on (in this example it's 32768):
 
 
 ```
@@ -60,10 +60,10 @@ bb8192fdd182        900288765caa        "python manage.py ..."   13 minutes ago 
 ```
 
 
-####The app can then be queried:
+#### The app can then be queried:
 
 
-######The REST interface sits behind basic auth so be sure to auth with each request!
+###### The REST interface sits behind basic auth so be sure to auth with each request!
 
 
 ```
@@ -90,7 +90,7 @@ Content-Length: 260
 ```
 
 
-####Battles can be created using POST. Sample body (application/json):
+#### Battles can be created using POST. Sample body (application/json):
 
 
 ```
@@ -103,7 +103,7 @@ Content-Length: 260
 ```
 
 
-##Considerations and Shortcomings
+## Considerations and Shortcomings
 
 
 - The default admin account is admin/password01.
