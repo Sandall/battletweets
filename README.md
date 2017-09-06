@@ -1,11 +1,13 @@
 # Battle of the Tweets!
 
-##What is battletweets?
+What is battletweets?
 
 Battletweets is an application that records the amount of spelling mistakes between two given tweets over a specified 
 period of time.
 
-##How does it work?
+
+###How does it work?
+
 
 The application has a simple flow: firstly a user must define a battle, once defined the user can initiate the battle by
 checking the 'started' flag. The battle will run until the end time is met. The winner may be queried at any point 
@@ -13,7 +15,9 @@ during and after said battle.
 
 Battles can be created via the Django admin area, or via the exposed REST interface. 
 
-##How does one run it?
+
+###How does one run it?
+
 
 The application requires several things to run:
 - Python 3.6 (32-bit - due to pyechant compatibility)
@@ -26,26 +30,42 @@ The application requires several things to run:
 For convenience, all the required run-times are provided in the Dockerfile at the project's root directory. The run this
 follow the commands below. 
 
+
 ####Firstly, an image needs to be built:
+
+
 ######(make sure you've changed directory to the root of the project!)
+
+
 ```
 $ docker build -t bt . 
 ```
 
+
 ####Secondly, the image needs to be run in a container:
+
+
 ```
 $ docker run -d -P bt
 ```
 
+
 ####Next, found out the port the app is accessible on (in this example it's 32768):
+
+
 ```
 $ docker ps
 CONTAINER ID        IMAGE               COMMAND                  CREATED             STATUS              PORTS                     NAMES
 bb8192fdd182        900288765caa        "python manage.py ..."   13 minutes ago      Up 13 minutes       0.0.0.0:32768->8000/tcp   goofy_mcnulty
 ```
 
+
 ####The app can then be queried:
+
+
 ######The REST interface sits behind basic auth so be sure to auth with each request!
+
+
 ```
 $ curl -XGET -u admin:password01 -i -H 'Accept:application/json' http://192.168.99.100:32769/battle/1/
 HTTP/1.0 200 OK
@@ -69,7 +89,10 @@ Content-Length: 260
 }
 ```
 
+
 ####Battles can be created using POST. Sample body (application/json):
+
+
 ```
 {
     "blue_corner": "#LOVE_YOURSELF",
@@ -79,7 +102,9 @@ Content-Length: 260
 }
 ```
 
+
 ##Considerations and Shortcomings
+
 
 - The default admin account is admin/password01.
 - Only the amount of spelling mistakes are recorded, not density!
