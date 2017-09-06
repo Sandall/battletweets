@@ -1,4 +1,3 @@
-#FROM clburlison/pylint:py3-wheezy
 FROM python:3.6-jessie
 
 RUN apt-get update && \
@@ -10,11 +9,6 @@ RUN apt-get update && \
 	
 WORKDIR /usr/share/battletweets/
 ADD . .
-
-#RUN pip install pyenchant
-#RUN pip install tweepy
-#RUN pip install django
-#RUN pip install django-tastypie
 
 EXPOSE 8000
 

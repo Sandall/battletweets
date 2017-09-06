@@ -26,6 +26,7 @@ class TweetAdmin(admin.ModelAdmin):
 
 
 class BattleAdmin(admin.ModelAdmin):
+    exclude = ('start_time',)
     inlines = [TweetInline]
 
 admin.site.register(Tweet, TweetAdmin)
